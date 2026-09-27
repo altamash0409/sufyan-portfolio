@@ -13,6 +13,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const RESUME_URL =
+  "https://drive.google.com/file/d/1DVDdCPc2qdx033VL02ZE-tza-Z_3xQJR/view?usp=drivesdk";
+
 const navigation = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
@@ -22,33 +25,31 @@ const navigation = [
   { label: "Contact", href: "#contact" },
 ];
 
-const experienceGroups = [
+const experienceBullets = [
   {
-    title: "Development",
-    details: "User Event · Client Script · Suitelet · RESTlet · Map/Reduce · SuiteScript 1.0 & 2.x",
-  },
-  {
-    title: "Administration",
+    title: "Development & admin",
     details:
-      "Saved Searches · Custom Fields · Custom Forms · Custom Records · Workflows · Reports · Dashboards · Roles & Permissions",
+      "Built custom SuiteScripts (User Event, Map/Reduce, Suitelet, RESTlet, Client Scripts) and managed core NetSuite admin (saved searches, custom fields/forms, workflows, dashboards) for finance stakeholders.",
   },
   {
-    title: "Business processes",
-    details: "O2C · P2P · Month-End Close",
+    title: "O2C & P2P support",
+    details:
+      "Monitored system reliability and resolved issues across Order-to-Cash and Procure-to-Pay during reporting and month-end close.",
   },
   {
     title: "Integrations",
-    details: "REST · SOAP · RESTlet · TBA · OAuth 1.0 · Postman",
+    details:
+      "Built REST/SOAP/RESTlet integrations with external systems using TBA/OAuth 1.0, troubleshooting sync errors and validating via Postman.",
   },
   {
-    title: "Data & support",
+    title: "Design & data",
     details:
-      "Data Migration · CSV Imports · Validation · End-User Support · Training · Support Cases",
+      "Contributed to LLD/HLD for new features and led data migrations/CSV imports with validation.",
   },
   {
-    title: "Documentation & releases",
+    title: "Access, support & releases",
     details:
-      "LLD/HLD · Test Scripts · Unit Testing · Design Documentation · Bi-Annual Release Testing",
+      "Managed roles/permissions, provided end-user support and training, and supported bi-annual release cycles.",
   },
 ];
 
@@ -207,6 +208,11 @@ function Portfolio() {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg">
+                <a href={RESUME_URL} target="_blank" rel="noreferrer">
+                  View Resume <ExternalLink aria-hidden="true" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
                 <a href="#contact">Let&apos;s Connect</a>
               </Button>
             </div>
@@ -297,15 +303,16 @@ function Portfolio() {
               Working across NetSuite administration, SuiteScript development, integrations,
               business processes and ERP automation.
             </p>
-            <div className="experience-groups">
-              {experienceGroups.map((group, index) => (
-                <div className="experience-row" key={group.title}>
-                  <span className="row-number">0{index + 1}</span>
-                  <h3>{group.title}</h3>
-                  <p>{group.details}</p>
-                </div>
+            <ul className="experience-bullets" aria-label="Key responsibilities and achievements">
+              {experienceBullets.map((item) => (
+                <li className="experience-bullet-item" key={item.title}>
+                  <span className="bullet-marker" aria-hidden="true">•</span>
+                  <p className="bullet-body">
+                    <strong className="bullet-title">{item.title}</strong> — {item.details}
+                  </p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
@@ -389,6 +396,11 @@ function Portfolio() {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg">
+                <a href={RESUME_URL} target="_blank" rel="noreferrer">
+                  View Resume <ExternalLink aria-hidden="true" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg">
                 <a href="https://www.linkedin.com/in/sufyan23/" target="_blank" rel="noreferrer">
                   LinkedIn <ExternalLink aria-hidden="true" />
                 </a>
@@ -409,8 +421,10 @@ function Portfolio() {
               <a href="mailto:qazisufyan2005@gmail.com">qazisufyan2005@gmail.com</a>
             </div>
             <div>
-              <span>PHONE</span>
-              <a href="tel:+919321284990">+91-9321284990</a>
+              <span>RESUME</span>
+              <a href={RESUME_URL} target="_blank" rel="noreferrer">
+                Sufyan Qazi CV <ExternalLink aria-hidden="true" />
+              </a>
             </div>
             <div>
               <span>LINKEDIN</span>
@@ -429,6 +443,10 @@ function Portfolio() {
         <p>NetSuite Techno-Functional Analyst</p>
         <span>© 2026 Sufyan Qazi</span>
         <div>
+          <a href={RESUME_URL} target="_blank" rel="noreferrer">
+            Resume
+          </a>
+          <span>·</span>
           <a href="https://www.linkedin.com/in/sufyan23/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
